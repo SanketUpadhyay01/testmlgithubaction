@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - main
+            - feature/my_feature
     pull_request:
         branches:
             - main
@@ -23,16 +24,8 @@ jobs:
 
           - name: Install dependencies
             run: 
-                python -m pip install --upgrade pip
                 pip install -r requirements.txt
 
           - name: Run tests
             run: 
                 python src/train.py
-
-          - name: Save model
-            uses: actions/upload-artifact@v2
-            with:
-                name: iris-model
-                path: model.joblib
-                retention-days: 5

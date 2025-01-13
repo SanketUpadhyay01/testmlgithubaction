@@ -29,10 +29,3 @@ jobs:
           - name: Run tests
             run: 
                 python src/train.py
-
-          - name: Save model
-            uses: actions/upload-artifact@v2
-            with:
-                name: iris-model
-                path: model.joblib
-                retention-days: 5
